@@ -1,119 +1,505 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Affiliate Masterclass eBook – ₹49 से शुरुआत करें</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="₹49 की इस ई-बुक से डिजिटल कमाई की शुरुआत करें। Instant डाउनलोड और Bonus Tools शामिल।">
-  <meta property="og:title" content="Affiliate Masterclass – ₹49 eBook">
-  <meta property="og:description" content="Zero से ₹1 लाख तक की Strategy | Instant Download | Bonus Tools">
-  <meta property="og:image" content="https://kitchendeck.storedropship.in/wp-content/uploads/2025/07/ChatGPT-Image-Jul-15-2025-08_02_50-AM.png">
-  <meta property="og:url" content="https://rzp.io/rzp/iNbV13yo">
+  <title>SEO Analyzer Tool | Instant On-Page Insights</title>
+  <meta name="description" content="Analyze titles, meta descriptions, keyword usage, and content quality in seconds. A fast, free SEO analyzer tool with clear, actionable insights.">
+  <meta name="theme-color" content="#1f7aec">
+  <meta property="og:title" content="SEO Analyzer Tool | Instant On-Page Insights">
+  <meta property="og:description" content="Analyze titles, meta descriptions, keyword usage, and content quality in seconds with this free SEO analyzer tool.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://example.com/seo-analyzer">
+  <meta property="og:image" content="https://example.com/assets/seo-analyzer-preview.png">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "SEO Analyzer Tool",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Analyze titles, meta descriptions, keyword usage, and content quality in seconds with clear, actionable insights.",
+      "url": "https://example.com/seo-analyzer"
+    }
+  </script>
   <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1e1f25;
+      --muted: #5b6072;
+      --accent: #1f7aec;
+      --accent-dark: #175cb2;
+      --border: #e2e6f0;
+      --success: #0f8f4a;
+      --warning: #c97d10;
+      --danger: #c62828;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    body.dark {
+      --bg: #0d1117;
+      --card: #161b22;
+      --text: #e6edf3;
+      --muted: #9ba4b4;
+      --accent: #4c9aff;
+      --accent-dark: #2f78d1;
+      --border: #2b3240;
+      --success: #21c16b;
+      --warning: #f2b44a;
+      --danger: #ff6b6b;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f8f8f4;
-      color: #333;
       margin: 0;
-      padding: 0;
-      line-height: 1.6;
+      font-family: "Inter", system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s ease, color 0.3s ease;
     }
+
+    header {
+      padding: 32px 16px 12px;
+    }
+
     .container {
-      max-width: 960px;
-      margin: auto;
-      padding: 40px 20px;
-      text-align: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px 40px;
     }
-    h1, h2, h3 {
-      color: #1e73be;
+
+    .hero {
+      display: grid;
+      gap: 16px;
+      align-items: center;
     }
-    .btn-primary {
-      background-color: #28a745;
-      color: white;
-      padding: 15px 30px;
-      font-size: 18px;
-      border-radius: 5px;
-      text-decoration: none;
-      display: inline-block;
-      margin: 20px 0;
-      transition: transform 0.3s ease;
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(2rem, 3vw, 3rem);
     }
-    .btn-primary:hover {
-      transform: scale(1.05);
+
+    .hero p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.05rem;
     }
-    ul {
-      text-align: left;
-      max-width: 600px;
-      margin: auto;
-      padding-left: 20px;
+
+    .toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--border);
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--card);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: var(--shadow);
+      width: fit-content;
     }
-    .icon {
-      font-size: 2rem;
-      margin: 10px 0;
+
+    .grid {
+      display: grid;
+      gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     }
-    footer {
-      background: #1e1e1e;
-      color: #ccc;
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
       padding: 20px;
-      font-size: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      font-size: 0.98rem;
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .hint {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .main-action {
+      width: 100%;
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-size: 1.05rem;
+      padding: 14px 18px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .main-action:hover {
+      background: var(--accent-dark);
+      transform: translateY(-1px);
+    }
+
+    .results {
+      display: grid;
+      gap: 16px;
+    }
+
+    .score {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 16px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(31, 122, 236, 0.12), transparent);
+      border: 1px solid var(--border);
+    }
+
+    .score strong {
+      font-size: 2rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    .pill.success {
+      background: rgba(15, 143, 74, 0.15);
+      color: var(--success);
+    }
+
+    .pill.warning {
+      background: rgba(201, 125, 16, 0.15);
+      color: var(--warning);
+    }
+
+    .pill.danger {
+      background: rgba(198, 40, 40, 0.15);
+      color: var(--danger);
+    }
+
+    ul {
+      padding-left: 20px;
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    .metric {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px dashed var(--border);
+    }
+
+    .metric:last-child {
+      border-bottom: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 24px 16px 40px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding-top: 24px;
+      }
+
+      .toggle {
+        width: 100%;
+        justify-content: center;
+      }
     }
   </style>
 </head>
 <body>
+  <header class="container">
+    <div class="hero">
+      <div>
+        <h1>SEO Analyzer Tool</h1>
+        <p>Audit your page content in seconds. Get actionable insights for titles, meta descriptions, keywords, and content quality.</p>
+      </div>
+      <button class="toggle" id="themeToggle" type="button" aria-pressed="false">
+        🌙 Switch to dark mode
+      </button>
+    </div>
+  </header>
 
-<!-- Hero Section -->
-<section class="container">
-  <h1><span style="color:#28a745;">₹49</span> में डिजिटल कमाई की शुरुआत!</h1>
-  <p>सीखिए Affiliate Marketing और पाइए Zero से ₹1 लाख तक की Strategy — साथ में Tools और Templates भी FREE!</p>
-  <img src="https://kitchendeck.storedropship.in/wp-content/uploads/2025/07/ChatGPT-Image-Jul-15-2025-08_02_50-AM.png" alt="eBook Cover" style="max-width:100%;border-radius:10px;margin:20px 0;">
-  <a href="https://rzp.io/rzp/iNbV13yo" class="btn-primary" target="_blank">👇 अभी खरीदें @ ₹49</a>
-  <p><small>Instant Download मिलेगा | Limited Time Offer</small></p>
-</section>
+  <main class="container grid">
+    <section class="card">
+      <h2>Page Details</h2>
+      <label for="pageUrl">Page URL</label>
+      <input id="pageUrl" type="url" placeholder="https://example.com/landing-page" autocomplete="off">
+      <div class="hint">Used to check URL length and format.</div>
 
-<!-- Features Section -->
-<section class="container" style="background:#fff7ed; margin-top:20px;">
-  <h2>📘 इस eBook में क्या मिलेगा?</h2>
-  <ul>
-    <li>✅ Affiliate Marketing की Basics</li>
-    <li>✅ क्या बेचना है, कहां बेचना है, कैसे बेचना है</li>
-    <li>✅ Funnels, Landing Pages, WhatsApp + Email Automation</li>
-    <li>✅ Bonus: Ready-to-use Tools & Templates</li>
-  </ul>
-</section>
+      <label for="pageTitle">Title Tag</label>
+      <input id="pageTitle" type="text" placeholder="SEO Analyzer Tool for Fast On-Page Audits" maxlength="120">
+      <div class="hint">Recommended length: 50–60 characters.</div>
 
-<!-- Testimonials Section -->
-<section class="container">
-  <h2>💬 क्या कहते हैं हमारे पाठक:</h2>
-  <p>⭐️⭐️⭐️⭐️⭐️ "First affiliate sale इसी eBook से हुई!" – Rahul S.</p>
-  <p>⭐️⭐️⭐️⭐️ "Beginners के लिए perfect guide!" – Priya M.</p>
-</section>
+      <label for="metaDescription">Meta Description</label>
+      <textarea id="metaDescription" placeholder="Summarize the page benefits in 150–160 characters."></textarea>
+      <div class="hint">Recommended length: 140–160 characters.</div>
 
-<!-- Bonus Tool Section -->
-<section class="container" style="background:#e0f7e9;">
-  <h2>🎁 FREE BONUS:</h2>
-  <p><strong>✅ BMI Calculator Tool</strong> – एक Global Free Tool जो आप use और share कर सकते हैं।</p>
-  <a href="https://kitchendeck.storedropship.in/bmi-calculator/" target="_blank">👉 Try BMI Calculator</a>
-</section>
+      <label for="targetKeyword">Primary Keyword</label>
+      <input id="targetKeyword" type="text" placeholder="seo analyzer">
+      <div class="hint">Used to check keyword usage and density.</div>
+    </section>
 
-<!-- Final CTA -->
-<section class="container">
-  <h2>🚀 अब शुरुआत करें!</h2>
-  <a href="https://rzp.io/rzp/iNbV13yo" class="btn-primary" target="_blank">👇 ₹49 में Download करें</a>
-  <p><small>Payment के बाद आपको eBook तुरंत डाउनलोड करने का लिंक मिलेगा।</small></p>
-  <p>✅ <a href="https://kitchendeck.storedropship.in/wp-content/uploads/2025/07/Affiliate_Masterclass_eBook_Final-7.pdf" target="_blank">डायरेक्ट डाउनलोड लिंक (Thank You Page)</a></p>
-</section>
+    <section class="card">
+      <h2>Content Snapshot</h2>
+      <label for="content">Main Content</label>
+      <textarea id="content" placeholder="Paste your main page content here."></textarea>
+      <div class="hint">We calculate word count, keyword density, and readability signals.</div>
 
-<!-- WhatsApp Floating CTA -->
-<a href="https://wa.me/919258036351?text=Hi%20I%20need%20help%20with%20Affiliate%20eBook"
-   target="_blank"
-   style="position:fixed;bottom:20px;right:20px;background:#25D366;color:white;padding:12px 16px;border-radius:50px;font-weight:bold;box-shadow:0 2px 8px rgba(0,0,0,0.2);z-index:9999;text-decoration:none;">
-  💬 Need Help? Chat Now
-</a>
+      <label for="readability">Reading Level</label>
+      <select id="readability">
+        <option value="general" selected>General audience</option>
+        <option value="expert">Industry experts</option>
+        <option value="consumer">Consumers / beginners</option>
+      </select>
+      <div class="hint">Influences the readability target score.</div>
 
-<!-- Footer -->
-<footer>
-  &copy; 2025 Affiliate Masterclass. सभी अधिकार सुरक्षित।
-</footer>
+      <button class="main-action" id="analyzeBtn" type="button">Analyze SEO</button>
+      <p class="hint" id="validationMessage" role="alert"></p>
+    </section>
 
+    <section class="card results">
+      <h2>SEO Score</h2>
+      <div class="score">
+        <div>
+          <div class="hint">Overall score</div>
+          <strong id="scoreValue">--</strong>
+        </div>
+        <span class="pill" id="scoreLabel">Awaiting input</span>
+      </div>
+
+      <div id="metrics">
+        <div class="metric">
+          <span>Title length</span>
+          <span id="titleMetric">--</span>
+        </div>
+        <div class="metric">
+          <span>Meta description length</span>
+          <span id="descMetric">--</span>
+        </div>
+        <div class="metric">
+          <span>URL length</span>
+          <span id="urlMetric">--</span>
+        </div>
+        <div class="metric">
+          <span>Word count</span>
+          <span id="wordMetric">--</span>
+        </div>
+        <div class="metric">
+          <span>Keyword density</span>
+          <span id="keywordMetric">--</span>
+        </div>
+        <div class="metric">
+          <span>Readability signal</span>
+          <span id="readabilityMetric">--</span>
+        </div>
+      </div>
+
+      <div>
+        <h3>Recommendations</h3>
+        <ul id="recommendations">
+          <li>Enter your details to see tailored guidance.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    Built for marketers who want quick, reliable SEO checks without leaving the browser.
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById("themeToggle");
+    const analyzeBtn = document.getElementById("analyzeBtn");
+    const validationMessage = document.getElementById("validationMessage");
+    const scoreValue = document.getElementById("scoreValue");
+    const scoreLabel = document.getElementById("scoreLabel");
+
+    const titleMetric = document.getElementById("titleMetric");
+    const descMetric = document.getElementById("descMetric");
+    const urlMetric = document.getElementById("urlMetric");
+    const wordMetric = document.getElementById("wordMetric");
+    const keywordMetric = document.getElementById("keywordMetric");
+    const readabilityMetric = document.getElementById("readabilityMetric");
+    const recommendations = document.getElementById("recommendations");
+
+    const setThemeLabel = (isDark) => {
+      themeToggle.textContent = isDark ? "☀️ Switch to light mode" : "🌙 Switch to dark mode";
+      themeToggle.setAttribute("aria-pressed", String(isDark));
+    };
+
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      setThemeLabel(document.body.classList.contains("dark"));
+    });
+
+    const sanitize = (value) => value.trim();
+
+    const countWords = (text) => {
+      const tokens = text
+        .toLowerCase()
+        .replace(/[^\w\s-]/g, " ")
+        .split(/\s+/)
+        .filter(Boolean);
+      return tokens.length;
+    };
+
+    const countKeyword = (text, keyword) => {
+      if (!keyword) return 0;
+      const safeKeyword = keyword.trim().toLowerCase();
+      if (!safeKeyword) return 0;
+      const regex = new RegExp(`\\b${safeKeyword.replace(/[-/\\^$*+?.()|[\]{}]/g, "\\$&")}\\b`, "g");
+      const matches = text.toLowerCase().match(regex);
+      return matches ? matches.length : 0;
+    };
+
+    const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+
+    const getScoreLabel = (score) => {
+      if (score >= 85) return { text: "Excellent", className: "pill success" };
+      if (score >= 65) return { text: "Good", className: "pill warning" };
+      return { text: "Needs work", className: "pill danger" };
+    };
+
+    const analyze = () => {
+      validationMessage.textContent = "";
+      const pageUrl = sanitize(document.getElementById("pageUrl").value);
+      const pageTitle = sanitize(document.getElementById("pageTitle").value);
+      const metaDescription = sanitize(document.getElementById("metaDescription").value);
+      const targetKeyword = sanitize(document.getElementById("targetKeyword").value);
+      const content = sanitize(document.getElementById("content").value);
+      const readability = document.getElementById("readability").value;
+
+      if (!pageTitle || !metaDescription || !content) {
+        validationMessage.textContent = "Please add a title, meta description, and content before analyzing.";
+        return;
+      }
+
+      const titleLength = pageTitle.length;
+      const descriptionLength = metaDescription.length;
+      const urlLength = pageUrl.length;
+      const wordCount = countWords(content);
+      if (wordCount === 0) {
+        validationMessage.textContent = "Content must include at least a few words.";
+        return;
+      }
+
+      const keywordHits = countKeyword(`${pageTitle} ${metaDescription} ${content}`, targetKeyword);
+      const keywordDensity = targetKeyword
+        ? clamp((keywordHits / wordCount) * 100, 0, 100)
+        : 0;
+
+      const averageSentenceLength = content.split(/[.!?]/).filter(Boolean).length
+        ? wordCount / content.split(/[.!?]/).filter(Boolean).length
+        : wordCount;
+
+      const readabilityTarget = readability === "expert" ? 24 : readability === "consumer" ? 16 : 20;
+      const readabilityScore = clamp(100 - Math.abs(averageSentenceLength - readabilityTarget) * 4, 0, 100);
+
+      const titleScore = titleLength >= 50 && titleLength <= 60 ? 20 : 10;
+      const descScore = descriptionLength >= 140 && descriptionLength <= 160 ? 20 : 10;
+      const urlScore = pageUrl ? (urlLength <= 60 ? 15 : 8) : 5;
+      const keywordScore = targetKeyword ? (keywordDensity >= 0.8 && keywordDensity <= 2.5 ? 20 : 10) : 8;
+      const contentScore = wordCount >= 300 ? 15 : 8;
+      const readabilityWeight = readabilityScore >= 70 ? 10 : 5;
+
+      const totalScore = clamp(
+        titleScore + descScore + urlScore + keywordScore + contentScore + readabilityWeight,
+        0,
+        100
+      );
+
+      scoreValue.textContent = `${totalScore}`;
+      const label = getScoreLabel(totalScore);
+      scoreLabel.textContent = label.text;
+      scoreLabel.className = label.className;
+
+      titleMetric.textContent = `${titleLength} chars`;
+      descMetric.textContent = `${descriptionLength} chars`;
+      urlMetric.textContent = pageUrl ? `${urlLength} chars` : "Not provided";
+      wordMetric.textContent = `${wordCount} words`;
+      keywordMetric.textContent = targetKeyword ? `${keywordDensity.toFixed(2)}% (${keywordHits} uses)` : "No keyword";
+      readabilityMetric.textContent = `${Math.round(readabilityScore)} / 100`;
+
+      const tips = [];
+      if (titleLength < 50 || titleLength > 60) {
+        tips.push("Keep the title between 50–60 characters for optimal SERP display.");
+      }
+      if (descriptionLength < 140 || descriptionLength > 160) {
+        tips.push("Aim for a 140–160 character meta description that mirrors the page value.");
+      }
+      if (!pageUrl) {
+        tips.push("Add a URL to check its length and cleanliness.");
+      } else if (urlLength > 60) {
+        tips.push("Shorten the URL to stay under 60 characters and remove extra parameters.");
+      }
+      if (!targetKeyword) {
+        tips.push("Add a primary keyword so we can check your density and placement.");
+      } else if (keywordDensity < 0.8 || keywordDensity > 2.5) {
+        tips.push("Keep keyword density between 0.8% and 2.5% for natural coverage.");
+      }
+      if (wordCount < 300) {
+        tips.push("Expand the content to at least 300 words for stronger topical depth.");
+      }
+      if (readabilityScore < 70) {
+        tips.push("Shorten sentences or add headings for easier scanning.");
+      }
+      if (tips.length === 0) {
+        tips.push("Great work! Your page meets all the key on-page SEO benchmarks.");
+      }
+
+      recommendations.innerHTML = tips.map((tip) => `<li>${tip}</li>`).join("");
+    };
+
+    analyzeBtn.addEventListener("click", analyze);
+
+    setThemeLabel(false);
+  </script>
 </body>
-</html>  RECHECK 
+</html>
